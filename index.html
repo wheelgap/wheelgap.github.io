@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>wheelgap: find Python dependencies with no prebuilt wheel</title>
+<meta name="description" content="wheelgap finds the Python dependencies that have no prebuilt wheel for your platform (ARM, Alpine, Windows on ARM, Python 3.15, free-threaded 3.14t) before your Docker build fails, and gives the upgrade that fixes each one.">
+<link rel="canonical" href="https://wheelgap.github.io/">
+<meta property="og:title" content="wheelgap">
+<meta property="og:description" content="Find the Python dependencies with no prebuilt wheel for your platform, before your build does.">
+<meta property="og:url" content="https://wheelgap.github.io/">
+<meta property="og:image" content="https://raw.githubusercontent.com/wheelgap/wheelgap/main/docs/social-preview.png">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"SoftwareApplication","name":"wheelgap","applicationCategory":"DeveloperApplication","operatingSystem":"Linux, macOS, Windows","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"Finds the Python dependencies that have no prebuilt wheel for a target platform, before the build does, and gives the upgrade that fixes each one.","url":"https://wheelgap.github.io/","codeRepository":"https://github.com/wheelgap/wheelgap","license":"https://opensource.org/licenses/MIT"}
+</script>
+<style>
+  :root { --bg: #ffffff; --fg: #1b1f24; --muted: #57606a; --line: #d8dee4; --link: #0b5fbf; --code: #f3f5f7; }
+  @media (prefers-color-scheme: dark) { :root { --bg: #0f1115; --fg: #e6e8eb; --muted: #9aa4ae; --line: #2b313a; --link: #6cb0ff; --code: #1a1e25; } }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--fg); font: 17px/1.55 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+  main { max-width: 760px; margin: 0 auto; padding: 48px 16px 64px; }
+  h1 { font-size: 2rem; line-height: 1.2; margin: 0 0 12px; }
+  h2 { font-size: 1.15rem; margin: 36px 0 8px; }
+  p { margin: 0 0 14px; }
+  .lede { color: var(--muted); font-size: 1.1rem; }
+  a { color: var(--link); }
+  pre { background: var(--code); border: 1px solid var(--line); border-radius: 8px; padding: 12px 14px; overflow-x: auto; font-size: 0.95rem; }
+  ul { padding-left: 20px; }
+  li { margin: 0 0 10px; }
+  footer { margin-top: 48px; padding-top: 16px; border-top: 1px solid var(--line); color: var(--muted); font-size: 0.9rem; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Find the Python dependencies with no prebuilt wheel for your platform, before your build does</h1>
+  <p class="lede">Switching to an ARM image, Alpine, Windows on ARM, Python 3.15 or free-threaded 3.14t, and seeing <code>Failed building wheel</code>? wheelgap reads your lockfile and lists every package pip or uv would have to compile from source, or can't install at all, on the platforms you ship to. With <code>--fix</code> it gives the upgrade that has the wheel and the command to run.</p>
+  <pre><code>uvx wheelgap -p 3.13 -t linux-aarch64,musl-aarch64 --fix</code></pre>
+  <p>Free and open source (MIT). No account, nothing to install permanently.</p>
+
+  <h2>Projects</h2>
+  <ul>
+    <li><a href="https://github.com/wheelgap/wheelgap">wheelgap</a>: the command-line tool, GitHub Action, agent skill and MCP server. <a href="https://wheelgap.github.io/wheelgap/">Documentation</a>.</li>
+    <li><a href="https://wheelgap.github.io/tracker/check/">Repo checker</a>: paste a public GitHub repository and see its gaps in the browser.</li>
+    <li><a href="https://wheelgap.github.io/tracker/">Wheel coverage tracker</a>: the top 5,000 PyPI packages by platform and Python version, updated nightly, with a page for each package.</li>
+    <li><a href="https://wheelgap.github.io/wheels/">Gap wheel index</a>: unofficial wheels PyPI is missing, built twice from PyPI's sdist and published only when both builds match.</li>
+  </ul>
+
+  <h2>Reading</h2>
+  <ul>
+    <li><a href="https://wheelgap.github.io/wheelgap/reports/python-3-15/">What breaks when you install real Python projects on 3.15 (and 3.15t)</a></li>
+    <li><a href="https://wheelgap.github.io/wheelgap/case-studies/">Case studies</a>: what wheelgap found in FastAPI, pydantic, Poetry, Streamlit, dlt and other projects.</li>
+  </ul>
+
+  <footer><a href="https://github.com/wheelgap">github.com/wheelgap</a> · <a href="https://pypi.org/project/wheelgap/">PyPI</a> · <a href="/llms.txt">llms.txt</a></footer>
+</main>
+</body>
+</html>
